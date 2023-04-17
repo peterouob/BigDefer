@@ -2,17 +2,19 @@ package main
 
 import (
 	"bigdefer/config"
-	"bigdefer/router"
 	"fmt"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	r := gin.Default()
-	router.Router(r)
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"status": "ok",
+		})
+	})
 	r.Run(":80")
 	fmt.Println(config.Config.GetString("mysql.dsn")) //測試config
-	//
 }
-
