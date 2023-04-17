@@ -1,7 +1,7 @@
 version: "3.0"
 services:
   database:
-    container_name: "deferStore-database-dev"
+    container_name: "bigDefer-database-dev"
     image: mysql:latest
     environment:
       MYSQL_DATABASE: "BigDefer"
@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: "password"
       MYSQL_ROOT_PASSWORD: "password"
     volumes:
-      - ./data:/var/lib/mysql #將data服務映射到mysql服務
+      - ./data:/var/lib/mysql  #將data服務映射到mysql服務
     ports:
       - "3306:3306"
       - "33060:33060"

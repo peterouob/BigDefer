@@ -1,14 +1,13 @@
 package router
 
 import (
-	"bigdefer/service"
-
+	"bigdefer/service/user"
 	"github.com/gin-gonic/gin"
 )
 
-func Router(r *gin.Engine) {
-	user := r.Group("/user")
+func Router(g *gin.Engine) {
+	user := g.Group("/user")
 	{
-		user.GET("/", service.GetUser)
+		user.POST("/create", userService.CreateUser)
 	}
 }

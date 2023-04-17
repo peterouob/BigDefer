@@ -1,2 +1,2 @@
 mysql:
-  dsn: "peter:password@tcp(localhost:3306)/bigdefer?charset=utf8mb4&parseTime=True&loc=Local"
+  dsn: "newuser:password@tcp(localhost:3306)/bigdefer?charset=utf8mb4&parseTime=True&loc=Local"
