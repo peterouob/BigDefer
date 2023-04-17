@@ -13,4 +13,6 @@ func main() {
 	router.Router(r)
 	r.Run(":80")
 	fmt.Println(config.Config.GetString("mysql.dsn")) //測試config
+	//
 }
+
