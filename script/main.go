@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	var db *gorm.DB
 	var err error
 	db, err = gorm.Open(mysql.Open("newuser:password@tcp(localhost:3306)/bigdefer?charset=utf8mb4&parseTime=True&loc=Local"))
