@@ -11,6 +11,7 @@ func Router(g *gin.Engine) {
 	user := g.Group("/user")
 	{
 		user.POST("/create", userService.CreateUser)
+		user.POST("/login", userService.LoginUser)
 	}
 	user.Use(H.Auth())
 	vip := user.Group("/vip")
