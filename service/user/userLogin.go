@@ -42,6 +42,7 @@ func LoginUser(c *gin.Context) {
 		tk, err := utils.SignToken(&token)
 		if err != nil {
 			H.Fail(c, "token error")
+			return
 		} else {
 			H.SetCookieForToken(c, "token", tk)
 			H.OK(c, "success login")
