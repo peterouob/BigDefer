@@ -1,10 +1,10 @@
 package blackuser
 
-var (
-	report     bool
-	reportName string
-)
-
-func ()  {
-
-}
+//var (
+//	report     bool
+//	reportName string
+//)
+//
+//func ()  {
+//
+//}
