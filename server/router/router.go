@@ -19,6 +19,7 @@ func Router(g *gin.Engine) {
 	{
 		user.POST("/create", userService.CreateUser)
 		user.POST("/login", userService.LoginUser)
+		user.POST("/refershToken", userService.RefershToken)
 	}
 	user.Use(middleware.Auth())
 	{

@@ -2,7 +2,6 @@ package userService
 
 import (
 	"bigdefer/orm/dal"
-	"bigdefer/orm/model"
 	H "bigdefer/service/http"
 	"bigdefer/utils"
 	"fmt"
@@ -20,8 +19,6 @@ type UserLoginRequest struct {
 type UserLoginResponse struct {
 	Token string `json:"token"`
 }
-
-var Userinfo chan *model.User
 
 func LoginUser(c *gin.Context) {
 	var req UserLoginRequest
@@ -53,7 +50,7 @@ func LoginUser(c *gin.Context) {
 				Uid:      strconv.Itoa(int(acc.ID)),
 				Username: acc.UserName,
 				StandardClaims: jwt.StandardClaims{
-					ExpiresAt: time.Now().Add(7 * 24 * time.Hour).UnixMilli(),
+					ExpiresAt: time.Now().Add(7 * time.Second).UnixMilli(),
 				},
 			}
 			tk, err := utils.SignToken(&token)
@@ -61,7 +58,6 @@ func LoginUser(c *gin.Context) {
 				H.Fail(c, "token error")
 				return
 			} else {
-				Userinfo <- acc
 				H.SetCookieForToken(c, "token", tk)
 				H.OK(c, "success login")
 			}
