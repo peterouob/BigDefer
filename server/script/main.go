@@ -16,8 +16,8 @@ func main() {
 		panic(fmt.Errorf("%s", "connect to mysql error"))
 	}
 	g := gen.NewGenerator(gen.Config{
-		OutPath:      "/Users/peter/Desktop/BigDefer/orm/dal",
-		ModelPkgPath: "/Users/peter/Desktop/BigDefer/orm/model",
+		OutPath:      "/Users/peter/Desktop/BigDefer/server/orm/dal",
+		ModelPkgPath: "/Users/peter/Desktop/BigDefer/server/orm/model",
 		Mode:         gen.WithDefaultQuery | gen.WithoutContext,
 	})
 	g.UseDB(db)
