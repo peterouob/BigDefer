@@ -14,6 +14,8 @@ func Router(g *gin.Engine) {
 		sudo.POST("/delete", sudoService.DeleteUser)
 		sudo.POST("/update", sudoService.UpdateUser)
 		sudo.GET("/getAllUsers", sudoService.FindAllUser)
+		sudo.POST("/blacklist", sudoService.Blacklist)
+		sudo.POST("/addBlacklisted", sudoService.AddBlackList)
 	}
 	user := g.Group("/user")
 	{
